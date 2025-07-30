@@ -13,7 +13,7 @@
 
 ## Use
 
-- run 'korgNANOKONTROL2toOSC.scd'
+- run `korgNANOKONTROL2toOSC.scd`
 - open 'nanAI_config' for configuration 
 - run 'nanAI_play.scd' to sequentially run all scripts:
   - nanAI.config.scd
