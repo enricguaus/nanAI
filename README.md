@@ -1,6 +1,8 @@
 # nanAI
 
-*nanAI* is a collaborative piece that aims to establish a dialogue between a live performer and and Artificial Intelligence model. The code here presented is a specific part of the whole piece consisting on a unsupervised Machine Learning model creation based on a set of (manually) selected audio descriptors implemented in Supercollider for Realtime performance.  
+*nanAI* is a collaborative piece that aims to establish a dialogue between a live performer and and Artificial Intelligence model. The code here presented is a specific part of the whole piece consisting on a unsupervised Machine Learning model creation based on a set of (manually) selected audio descriptors implemented in Supercollider for Realtime performance.
+
+More info about the project can be found in [Sheepdog](http://sheepdog.es/portfolio/nanai) web page and in this [Youtube](https://youtube.com/playlist?list=PLKev7xK8J5TkbjqGiDbZWvyeYB_hUObUZ&feature=shared) playlist. 
 
 The analysis returns the set of values through OSC including:
 
