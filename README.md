@@ -1,6 +1,6 @@
 # nanAI
 
-*nanAI* is a collaborative piece that ains to establish a dialogue between a live performer and and Artificial Intelligence model. The code here presented is a specific part of the whole piece consisting on a unsupervised Machine Learning model creation based on a set of (manually) selected audio descriptors implemented in Supercollider for Realtime performance.  
+*nanAI* is a collaborative piece that aims to establish a dialogue between a live performer and and Artificial Intelligence model. The code here presented is a specific part of the whole piece consisting on a unsupervised Machine Learning model creation based on a set of (manually) selected audio descriptors implemented in Supercollider for Realtime performance.  
 
 ![Screenshot](images/screenshot.jpg)
 
@@ -13,7 +13,7 @@
 
 ## Use
 
-- Run `korgNANOKONTROL2toOSC.scd`
+- Run `/support/korgNANOKONTROL2toOSC.scd`
 - Open `nanAI_config` for configuration
   - `~n_inputs`: Number of input channels. Each channel performs an independent analysis
   - `~n_outputs`: Number of output channels. Only for monitoring input, with creative panning
