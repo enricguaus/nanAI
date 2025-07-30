@@ -2,6 +2,14 @@
 
 *nanAI* is a collaborative piece that aims to establish a dialogue between a live performer and and Artificial Intelligence model. The code here presented is a specific part of the whole piece consisting on a unsupervised Machine Learning model creation based on a set of (manually) selected audio descriptors implemented in Supercollider for Realtime performance.  
 
+The analysis returns the set of values through OSC including:
+
+- Computed features
+- Error between the the current sample and center of the clusters
+- Selected cluster
+ 
+These values are frame-based computed, but the rate of the OSC output messages is specified in `nanAI_oscSend.scd`, i terms of `0.5.wait;` in a Task. Not optimal, I know...
+
 ![Screenshot](images/screenshot.jpg)
 
 ## Requirements
