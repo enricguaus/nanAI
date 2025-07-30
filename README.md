@@ -13,13 +13,19 @@
 
 ## Use
 
-- run `korgNANOKONTROL2toOSC.scd`
-- open 'nanAI_config' for configuration 
-- run 'nanAI_play.scd' to sequentially run all scripts:
-  - nanAI.config.scd
-  - nanAI.synths.scd
-  - nanAI.oscControl.scd
-  - nanAI.gui.scd
+- Run `korgNANOKONTROL2toOSC.scd`
+- Open `nanAI_config` for configuration
+  - `~n_inputs`: Number of input channels. Each channel performs an independent analysis
+  - `~n_outputs`: Number of output channels. Only for monitoring input, with creative panning
+  - `~n_dims`: Number of computed descriptors (manually selected according to nanAI_synths)
+  - `~kme_k`: number of clusters
+  - `~audio_path`: Path to audio files, in case of recorded input.
+  - `~result_osc_out`: IP address for output values (manually selected) 
+- Run `nanAI_play.scd` to sequentially run all scripts:
+  - `nanAI.config.scd`
+  - `nanAI.synths.scd`
+  - `nanAI.oscControl.scd`
+  - `nanAI.gui.scd`
   - nanAI.oscSend.scd
 - Play with Korg midi controller:
   - Play:  Play all files in ~audio_path
