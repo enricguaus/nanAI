@@ -26,7 +26,7 @@
   - `nanAI.synths.scd`
   - `nanAI.oscControl.scd`
   - `nanAI.gui.scd`
-  - nanAI.oscSend.scd
+  - `nanAI.oscSend.scd`
 - Play with Korg midi controller:
   - Play:  Play all files in ~audio_path
   - Rec:   Listens all channels in ~n_inputs
