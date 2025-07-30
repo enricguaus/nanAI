@@ -77,7 +77,7 @@ s.doWhenBooted({
 // -------------------
 ~gui_width  = 800;
 ~gui_height = 650;//480;// 650;
-~gui_image = Image.new(~nanAI_folder ++ "sheepdog_lite.jpg");
+~gui_image = Image.new(~nanAI_folder ++ "images/sheepdog_lite.jpg");
 
 // -------------------------
 // ---- OSC CONTROL OUT ----
