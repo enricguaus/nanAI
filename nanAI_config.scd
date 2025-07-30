@@ -39,12 +39,13 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 if(s.serverRunning==false,{
 	ServerOptions.devices;
 	s.options.memSize=1024*64;
+	s.doWhenBooted({
+		s.meter(4,4);
+		s.plotTree;
+	});
 });
 
-s.doWhenBooted({
-	s.meter(4,4);
-	s.plotTree;
-});
+
 
 // -------------------
 // ---- CONSTANTS ----
