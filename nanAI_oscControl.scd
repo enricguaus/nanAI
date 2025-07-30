@@ -41,7 +41,7 @@ OSCdef(\nanAI_nanoKONTROL2_play,{ arg msg, time, addr, recvPort;
 	},{
 		~n_inputs.do({arg i; w[i].free;	});
 	});
-},'/nanoKONTROL2/transport/play',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/transport/play',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanAI_nanoKONTROL2_rec,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
@@ -51,7 +51,7 @@ OSCdef(\nanAI_nanoKONTROL2_rec,{ arg msg, time, addr, recvPort;
 	},{
 		~n_inputs.do({arg i; w[i].free;	});
 	});
-},'/nanoKONTROL2/transport/rec',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/transport/rec',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanAI_nanoKONTROL2_stop,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
@@ -70,7 +70,7 @@ OSCdef(\nanAI_nanoKONTROL2_stop,{ arg msg, time, addr, recvPort;
 		~runGui.stop;
 		~runOSC.stop;
 	});
-},'/nanoKONTROL2/transport/stop',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/transport/stop',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanAI_nanoKONTROL2_cycle,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
@@ -79,42 +79,42 @@ OSCdef(\nanAI_nanoKONTROL2_cycle,{ arg msg, time, addr, recvPort;
 	},{
 		~n_inputs.do({arg i; y[i].set(\rst,0)});
 	});
-},'/nanoKONTROL2/cycle',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/cycle',recvPort:~nanoKONTROL2_osc_in);
 
 // ---------------
 // ---- KNOBS ----
 // ---------------
 OSCdef(\nanAI_nanoKONTROL2_knob1,{ arg msg, time, addr, recvPort;
 	w[0].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/knob/1',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/knob/1',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanAI_nanoKONTROL2_knob2,{ arg msg, time, addr, recvPort;
 	w[1].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/knob/2',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/knob/2',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanAI_nanoKONTROL2_knob3,{ arg msg, time, addr, recvPort;
 	w[2].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/knob/3',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/knob/3',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanAI_nanoKONTROL2_knob4,{ arg msg, time, addr, recvPort;
 	w[3].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/knob/4',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/knob/4',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanAI_nanoKONTROL2_knob5,{ arg msg, time, addr, recvPort;
 	w[4].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/knob/5',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/knob/5',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanAI_nanoKONTROL2_knob6,{ arg msg, time, addr, recvPort;
 	w[5].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/knob/6',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/knob/6',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanAI_nanoKONTROL2_knob7,{ arg msg, time, addr, recvPort;
 	w[6].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/knob/7',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/knob/7',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanAI_nanoKONTROL2_knob8,{ arg msg, time, addr, recvPort;
 	w[7].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/knob/8',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/knob/8',recvPort:~nanoKONTROL2_osc_in);
 
 
 
@@ -134,48 +134,48 @@ OSCdef(\nanoKONTROL2_next,{ arg msg, time, addr, recvPort;
 		z = ~n_inputs.collect{arg i;
 			Synth.newPaused(\encdec,[\in,~aud_buf[i], \out, Bus.newFrom(~nne_bus,i,1), \idx,i,\in_lat,~dis_bus.subBus(i*~kme_k,~kme_k)])};
 	});
-},'/nanoKONTROL2/marker/next',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/marker/next',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_last,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
 	if(value>0,{
 		~n_inputs.do({arg i; z[i].free;});
 	});
-},'/nanoKONTROL2/marker/last',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/marker/last',recvPort:~nanoKONTROL2_osc_in);
 
 
 
 OSCdef(\nanoKONTROL2_fader1,{ arg msg, time, addr, recvPort;
 	z[0].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/fader/1',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/fader/1',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_fader2,{ arg msg, time, addr, recvPort;
 	z[1].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/fader/2',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/fader/2',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_fader3,{ arg msg, time, addr, recvPort;
 	z[2].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/fader/3',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/fader/3',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_fader4,{ arg msg, time, addr, recvPort;
 	z[3].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/fader/4',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/fader/4',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_fader5,{ arg msg, time, addr, recvPort;
 	z[4].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/fader/5',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/fader/5',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_fader6,{ arg msg, time, addr, recvPort;
 	z[5].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/fader/6',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/fader/6',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_fader7,{ arg msg, time, addr, recvPort;
 	z[6].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/fader/7',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/fader/7',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_fader8,{ arg msg, time, addr, recvPort;
 	z[7].set(\amp,msg[1].asFloat);
-},'/nanoKONTROL2/fader/8',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/fader/8',recvPort:~nanoKONTROL2_osc_in);
 )
 
 
@@ -183,41 +183,41 @@ OSCdef(\nanoKONTROL2_fader8,{ arg msg, time, addr, recvPort;
 OSCdef(\nanoKONTROL2_rec1,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
 	if(value>0,{z[0].run;},{z[0].run(false);});
-},'/nanoKONTROL2/rec/1',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/rec/1',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_rec2,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
 	if(value>0,{z[1].run},{z[1].run(false)});
-},'/nanoKONTROL2/rec/2',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/rec/2',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_rec3,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
 	if(value>0,{z[2].run},{z[2].run(false)});
-},'/nanoKONTROL2/rec/3',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/rec/3',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_rec4,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
 	if(value>0,{z[3].run},{z[3].run(false)});
-},'/nanoKONTROL2/rec/4',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/rec/4',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_rec5,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
 	if(value>0,{z[4].run},{z[4].run(false)});
-},'/nanoKONTROL2/rec/5',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/rec/5',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_rec6,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
 	if(value>0,{z[5].run},{z[5].run(false)});
-},'/nanoKONTROL2/rec/6',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/rec/6',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_rec7,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
 	if(value>0,{z[6].run},{z[6].run(false)});
-},'/nanoKONTROL2/rec/7',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/rec/7',recvPort:~nanoKONTROL2_osc_in);
 
 OSCdef(\nanoKONTROL2_rec8,{ arg msg, time, addr, recvPort;
 	var value = msg[1].asFloat;
 	if(value>0,{z[7].run},{z[7].run(false)});
-},'/nanoKONTROL2/rec/8',recvPort:~osc_korg_port);
+},'/nanoKONTROL2/rec/8',recvPort:~nanoKONTROL2_osc_in);
 */
 

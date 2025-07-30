@@ -71,7 +71,7 @@ if(s.serverRunning==false,{
 // ------------------------
 // ---- OSC CONTROL IN ----
 // ------------------------
-~osc_korg_port   = 57120;  // Receive actions from controller KORG nanoKONTROL2
+~nanoKONTROL2_osc_in   = 57120;  // Receive actions from controller KORG nanoKONTROL2
 
 // -------------------
 // ---- VARIABLES ----
